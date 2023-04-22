@@ -7,14 +7,7 @@ const Tweets = lazy(() => import("../../pages/TweetsPage/TweetsPage"));
 
 function App() {
   return (
-    <Suspense
-      fallback={
-        <div>
-          {/* <Progress hasStripe value={64} /> */}
-          Loading page...
-        </div>
-      }
-    >
+    <div>
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
@@ -22,7 +15,7 @@ function App() {
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>
-    </Suspense>
+    </div>
   );
 }
 
