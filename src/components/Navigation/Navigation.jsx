@@ -4,17 +4,18 @@ import { Outlet, NavLink } from "react-router-dom";
 const Navigation = () => {
   return (
     <>
-      <ul>
-        <li>
-          <h1>Tweets</h1>
-        </li>
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/tweets">Tweets</NavLink>
-        </li>
-      </ul>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/tweets">Tweets</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </header>
       <Suspense
         fallback={
           <div>
