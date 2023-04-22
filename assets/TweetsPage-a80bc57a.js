@@ -1,1 +1,0 @@
-import{j as e}from"./index-2146d928.js";import{H as t}from"./Helmet-28f42a52.js";const s=()=>e.jsx(e.Fragment,{children:" TweetItem"}),r=()=>e.jsxs(e.Fragment,{children:["TweetsList",e.jsx(s,{})]}),m=()=>e.jsxs(e.Fragment,{children:[e.jsx(t,{children:e.jsx("title",{children:"Tweets"})}),"Tweets",e.jsx(r,{})]});export{m as default};
