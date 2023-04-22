@@ -1,17 +1,20 @@
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Navigation from "../Navigation/Navigation";
-import Home from "../../pages/HomePage/HomePage";
-import Tweets from "../../pages/TweetsPage/TweetsPage";
-
-// const Navigation = lazy(() => import("../Navigation/Navigation"));
-// const Home = lazy(() => import("../../pages/HomePage/HomePage"));
-// const Tweets = lazy(() => import("../../pages/TweetsPage/TweetsPage"));
+const Navigation = lazy(() => import("../Navigation/Navigation"));
+const Home = lazy(() => import("../../pages/HomePage/HomePage"));
+const Tweets = lazy(() => import("../../pages/TweetsPage/TweetsPage"));
 
 function App() {
   return (
-    <div>
+    <Suspense
+      fallback={
+        <div>
+          {/* <Progress hasStripe value={64} /> */}
+          Loading page...
+        </div>
+      }
+    >
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
@@ -19,7 +22,7 @@ function App() {
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>
-    </div>
+    </Suspense>
   );
 }
 

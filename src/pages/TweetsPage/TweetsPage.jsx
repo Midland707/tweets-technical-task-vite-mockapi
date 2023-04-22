@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import { TweetsList } from "../../components/TweeetsList/TweetsList";
 
 const TweetsPage = () => {
   return (
@@ -7,6 +8,7 @@ const TweetsPage = () => {
         <title>Tweets</title>
       </Helmet>
       Tweets
+      <TweetsList />
     </>
   );
 };
