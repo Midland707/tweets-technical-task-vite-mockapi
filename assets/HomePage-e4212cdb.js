@@ -1,1 +1,0 @@
-import{j as e}from"./index-889f6549.js";import{H as r}from"./Helmet-2310dea2.js";const m=()=>e.jsxs(e.Fragment,{children:[e.jsx(r,{children:e.jsx("title",{children:"Home"})}),"Home"]});export{m as default};
