@@ -1,0 +1,1 @@
+import{j as e}from"./index-929c46de.js";import{H as r}from"./Helmet-a02abc0d.js";const o=()=>e.jsxs("main",{children:[e.jsx(r,{children:e.jsx("title",{children:"Home"})}),e.jsx("h2",{children:"My favorite users"})]});export{o as default};
