@@ -12,8 +12,19 @@ import {
 } from "./TweetItem.styled";
 import logo from "../../images/logo.svg";
 import image from "../../images/image.png";
-
+import { getUsers } from "../../service/operation";
 export const TweetItem = () => {
+  const handelOnClick = () => {
+    getUsers()
+      .then((res) => {
+        // setDataQuery(res.data);
+        console.log("users =", res.data);
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+  };
+
   return (
     <Item>
       <TweetCard>
@@ -28,7 +39,10 @@ export const TweetItem = () => {
         </AvatarBorder>
         <Tweets>Tweets</Tweets>
         <Followers>Followers</Followers>
-        <TweetBtn>Follow</TweetBtn>
+        <TweetBtn onClick={handelOnClick}>
+          {/* Following */}
+          Follow
+        </TweetBtn>
       </TweetCard>
     </Item>
   );
