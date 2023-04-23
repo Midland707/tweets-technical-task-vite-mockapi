@@ -3,6 +3,7 @@ import { GoBackButton } from "./TweetsPage.styled";
 import { useLocation } from "react-router-dom";
 import { useRef } from "react";
 import { FilterTweets } from "../../components/FilterTweets/FilterTweets";
+import { TweetsList } from "../../components/TweeetsList/TweetsList";
 const TweetsPage = () => {
   const location = useLocation();
   const backLinkRef = useRef(location.state?.from ?? "/");
@@ -14,6 +15,7 @@ const TweetsPage = () => {
       </Helmet>
       <GoBackButton to={backLinkRef.current}>Go back</GoBackButton>
       <FilterTweets />
+      <TweetsList />
     </main>
   );
 };
