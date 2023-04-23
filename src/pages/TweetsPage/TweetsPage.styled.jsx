@@ -13,8 +13,9 @@ export const GoBackButton = styled(Link)`
 
   width: 100px;
   cursor: pointer;
-  border: 1px solid black;
-  border-radius: 4px;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 10.3108px;
   text-decoration: none;
   padding: 10px;
   color: #373737;

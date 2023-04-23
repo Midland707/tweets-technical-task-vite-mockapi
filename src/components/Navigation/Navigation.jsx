@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import {
   Header,
   Nav,
@@ -7,6 +7,7 @@ import {
   NavItem,
   StyledNavLink,
 } from "./Navigation.styled";
+import { Loader } from "../Loader/Loader";
 
 const Navigation = () => {
   return (
@@ -26,7 +27,7 @@ const Navigation = () => {
       <Suspense
         fallback={
           <div>
-            {/* <Progress hasStripe value={64} /> */}
+            <Loader />
             Loading page...
           </div>
         }

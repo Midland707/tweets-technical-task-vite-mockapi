@@ -1,3 +1,3 @@
 export const FilterTweets = () => {
-  return <></>;
+  return <>Filter</>;
 };
