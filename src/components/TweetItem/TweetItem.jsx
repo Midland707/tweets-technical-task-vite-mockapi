@@ -32,7 +32,7 @@ export const TweetItem = ({ user, handelOnClick }) => {
         </AvatarBorder>
         <Tweets>{tweets} Tweets</Tweets>
         <Followers>{formattedFollowers} Followers</Followers>
-        <TweetBtn onClick={() => handelOnClick(id)}>
+        <TweetBtn onClick={() => handelOnClick(id, user)}>
           {/* Change to Following */}
           Follow
         </TweetBtn>

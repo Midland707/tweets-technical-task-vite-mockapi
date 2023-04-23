@@ -11,5 +11,5 @@ export async function getAllUsers() {
 }
 
 export async function changeUser(id, user) {
-  await axios.post(`users/${id}`, user);
+  await axios.put(`users/${id}`, user);
 }
