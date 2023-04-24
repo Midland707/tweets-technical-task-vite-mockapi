@@ -3,9 +3,11 @@ import styled from "styled-components";
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
   margin: 0;
   padding: 0;
+  margin-top: 20px;
 `;
 
 export const LoadButton = styled.button`
@@ -25,7 +27,8 @@ export const LoadButton = styled.button`
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border: none;
   border-radius: 10.3108px;
-  margin-bottom: 36px;
+  margin-bottom: 30px;
+  margin-top: 20px;
 
   &:hover,
   &:focus {

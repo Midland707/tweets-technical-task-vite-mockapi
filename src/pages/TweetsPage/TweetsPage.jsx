@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { GoBackButton } from "./TweetsPage.styled";
+import { GoBackButton, TweetsMain } from "./TweetsPage.styled";
 import { useLocation } from "react-router-dom";
 import { useRef } from "react";
 import { FilterTweets } from "../../components/FilterTweets/FilterTweets";
@@ -9,13 +9,13 @@ const TweetsPage = () => {
   const backLinkRef = useRef(location.state?.from ?? "/");
 
   return (
-    <main>
+    <TweetsMain>
       <Helmet>
         <title>Tweets</title>
       </Helmet>
       <GoBackButton to={backLinkRef.current}>Go back</GoBackButton>
       <TweetsList />
-    </main>
+    </TweetsMain>
   );
 };
 

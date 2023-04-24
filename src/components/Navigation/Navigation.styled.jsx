@@ -14,7 +14,6 @@ export const Header = styled.header`
   );
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
   height: 50px;
 `;
 
@@ -31,10 +30,16 @@ export const NavList = styled.ul`
 export const NavItem = styled.li``;
 
 export const StyledNavLink = styled(NavLink)`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+
   text-decoration: none;
-  font-size: 20px;
   padding: 10px;
   color: #ebd8ff;
+  text-transform: uppercase;
 
   &.active {
     color: #5cd3a8;

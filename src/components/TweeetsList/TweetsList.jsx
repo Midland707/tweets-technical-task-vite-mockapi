@@ -53,7 +53,7 @@ export const TweetsList = () => {
     const usersArr = [...users];
     usersArr[id - 1].followers = followers;
     setUsers(usersArr);
-    // changeUser(id, user);
+    changeUser(id, user);
     localStorage.setItem("followingUsers", JSON.stringify(ArrFollowId));
   };
 
