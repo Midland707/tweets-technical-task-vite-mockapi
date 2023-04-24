@@ -50,7 +50,7 @@ export const TweetsList = () => {
     const index = usersArr.findIndex((user) => user.id === id);
     usersArr[index].followers = followers;
     setUsers(usersArr);
-    changeUser(id, user);
+    // changeUser(id, user);
     console.log("usersFollow = ", usersFollow);
     localStorage.setItem("followUsers", JSON.stringify(usersFollow));
   };
@@ -66,7 +66,7 @@ export const TweetsList = () => {
     user.followers = user.followers - 1;
     console.log("віднімаю - ", user.user);
     const removedUser = usersFollow;
-    setUsersFollow(removedUser.filter((user) => user.id !== id));
+    setUsersFollow(removedUser.filter((user) => user.user !== user.user));
     saveUsers(id, user, user.followers);
   };
 
