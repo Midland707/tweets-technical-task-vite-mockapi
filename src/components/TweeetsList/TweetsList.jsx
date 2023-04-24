@@ -11,24 +11,28 @@ export const TweetsList = () => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [showBtn, setShowBtn] = useState(false);
-  const [pages, setPages] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [usersFollow, setUsersFollow] = useState([]);
+
+  let followingUsersArr = [];
+
+  const loadFromStorage = () => {
+    const userStorage = localStorage.getItem("followingUsers");
+    const parsedUsers = JSON.parse(userStorage);
+    if (parsedUsers) {
+      followingUsersArr = parsedUsers;
+    }
+  };
 
   useEffect(() => {
     getAllUsers()
       .then((res) => {
-        setPages(res.data.length);
+        setTotalPages(res.data.length);
       })
       .catch((error) => {
         console.error(error.message);
       });
-
-    const userStorage = localStorage.getItem("followUsers");
-    const parsedUsers = JSON.parse(userStorage);
-    if (parsedUsers) {
-      setUsersFollow(parsedUsers);
-    }
+    loadFromStorage();
   }, []);
 
   useEffect(() => {
@@ -38,35 +42,29 @@ export const TweetsList = () => {
         setUsers([...users, ...res.data]);
         setShowBtn(true);
         setIsLoading(false);
-        if (pages) setShowBtn(page < Math.ceil(pages / 3));
+        if (totalPages) setShowBtn(page < Math.ceil(totalPages / 3));
       })
       .catch((error) => console.error(error.message));
   }, [page]);
 
-  // useEffect(() => {}, [usersFollow]);
-
   const saveUsers = (id, user, followers) => {
-    const usersArr = users;
-    const index = usersArr.findIndex((user) => user.id === id);
-    usersArr[index].followers = followers;
+    const usersArr = [...users];
+    usersArr[id - 1].followers = followers;
     setUsers(usersArr);
     // changeUser(id, user);
-    console.log("usersFollow = ", usersFollow);
-    localStorage.setItem("followUsers", JSON.stringify(usersFollow));
+    localStorage.setItem("followingUsers", JSON.stringify(followingUsersArr));
   };
 
   const followOnClick = (id, user) => {
-    if (!usersFollow.find((user) => user.id === id)) {
-      console.log("ДОДАЮ - ", user.user);
+    loadFromStorage();
+    if (!followingUsersArr.find((user) => user.id === id)) {
       user.followers = user.followers + 1;
-      setUsersFollow([...usersFollow, user]);
+      followingUsersArr = [...followingUsersArr, user];
       saveUsers(id, user, user.followers);
       return;
     }
     user.followers = user.followers - 1;
-    console.log("віднімаю - ", user.user);
-    const removedUser = usersFollow;
-    setUsersFollow(removedUser.filter((user) => user.user !== user.user));
+    followingUsersArr = followingUsersArr.filter((user) => user.id !== id);
     saveUsers(id, user, user.followers);
   };
 
