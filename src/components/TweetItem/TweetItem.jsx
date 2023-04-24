@@ -15,12 +15,14 @@ import image from "../../images/image.png";
 
 export const TweetItem = ({ user, handelOnClick }) => {
   const { tweets, followers, avatar, id } = user;
-  const formattedNumber = followers.toString();
-  const formattedFollowers = [
-    formattedNumber.slice(0, formattedNumber.length - 3),
-    ",",
-    formattedNumber.slice(formattedNumber.length - 3),
-  ].join("");
+
+  let buttonName;
+  const parsedUsers = JSON.parse(localStorage.getItem("followingUsers"));
+  if (parsedUsers.find((user) => user.id === id)) buttonName = "Following";
+  else buttonName = "Follow";
+
+  const formattedFollowers = followers.toLocaleString("en-US");
+
   return (
     <Item>
       <TweetCard>
@@ -32,9 +34,13 @@ export const TweetItem = ({ user, handelOnClick }) => {
         </AvatarBorder>
         <Tweets>{tweets} Tweets</Tweets>
         <Followers>{formattedFollowers} Followers</Followers>
-        <TweetBtn onClick={() => handelOnClick(id, user)}>
-          {/* Change to Following */}
-          Follow
+        <TweetBtn
+          style={{
+            backgroundColor: buttonName === "Following" ? "#5cd3a8" : "#ebd8ff",
+          }}
+          onClick={() => handelOnClick(id, user)}
+        >
+          {buttonName}
         </TweetBtn>
       </TweetCard>
     </Item>
