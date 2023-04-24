@@ -3,6 +3,7 @@ import { TweetItem } from "../TweetItem/TweetItem";
 import { List, LoadButton } from "./TweetsList.styled";
 import { getUsers, getAllUsers, changeUser } from "../../service/operation";
 import { Loader } from "../Loader/Loader";
+import { FilterTweets } from "../FilterTweets/FilterTweets";
 
 import * as Scroll from "react-scroll";
 var scroll = Scroll.animateScroll;
@@ -13,14 +14,15 @@ export const TweetsList = () => {
   const [showBtn, setShowBtn] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [filter, setFilter] = useState("show all");
 
-  let followingUsersArr = [];
+  let ArrFollowId = [];
 
   const loadFromStorage = () => {
     const userStorage = localStorage.getItem("followingUsers");
     const parsedUsers = JSON.parse(userStorage);
     if (parsedUsers) {
-      followingUsersArr = parsedUsers;
+      ArrFollowId = parsedUsers;
     }
   };
 
@@ -52,19 +54,19 @@ export const TweetsList = () => {
     usersArr[id - 1].followers = followers;
     setUsers(usersArr);
     // changeUser(id, user);
-    localStorage.setItem("followingUsers", JSON.stringify(followingUsersArr));
+    localStorage.setItem("followingUsers", JSON.stringify(ArrFollowId));
   };
 
   const followOnClick = (id, user) => {
     loadFromStorage();
-    if (!followingUsersArr.find((user) => user.id === id)) {
+    if (!ArrFollowId.includes(id)) {
       user.followers = user.followers + 1;
-      followingUsersArr = [...followingUsersArr, user];
+      ArrFollowId = [...ArrFollowId, id];
       saveUsers(id, user, user.followers);
       return;
     }
     user.followers = user.followers - 1;
-    followingUsersArr = followingUsersArr.filter((user) => user.id !== id);
+    ArrFollowId = ArrFollowId.filter((userId) => userId !== id);
     saveUsers(id, user, user.followers);
   };
 
@@ -73,10 +75,22 @@ export const TweetsList = () => {
     scroll.scrollToBottom();
   };
 
+  const onSelect = (e) => {
+    setFilter(e.value);
+  };
+
+  let filterUsers;
+  if (filter === "show all") filterUsers = users;
+  loadFromStorage();
+  if (filter === "follow")
+    filterUsers = users.filter((user) => !ArrFollowId.includes(user.id));
+  if (filter === "following")
+    filterUsers = users.filter((user) => ArrFollowId.includes(user.id));
   return (
     <>
+      <FilterTweets onSelect={onSelect} />
       <List>
-        {users.map((user) => (
+        {filterUsers.map((user) => (
           <TweetItem key={user.id} user={user} handelOnClick={followOnClick} />
         ))}
       </List>

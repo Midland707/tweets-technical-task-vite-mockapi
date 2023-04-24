@@ -14,7 +14,6 @@ const TweetsPage = () => {
         <title>Tweets</title>
       </Helmet>
       <GoBackButton to={backLinkRef.current}>Go back</GoBackButton>
-      <FilterTweets />
       <TweetsList />
     </main>
   );

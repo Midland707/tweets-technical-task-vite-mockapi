@@ -6,7 +6,7 @@ const HomePage = () => {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      <h2>My favorite users</h2>
+      <h2>My favorite tweets</h2>
     </main>
   );
 };

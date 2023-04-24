@@ -18,8 +18,9 @@ export const TweetItem = ({ user, handelOnClick }) => {
 
   let buttonName;
   const parsedUsers = JSON.parse(localStorage.getItem("followingUsers"));
-  if (parsedUsers.find((user) => user.id === id)) buttonName = "Following";
-  else buttonName = "Follow";
+  if (parsedUsers)
+    if (parsedUsers.includes(id)) buttonName = "Following";
+    else buttonName = "Follow";
 
   const formattedFollowers = followers.toLocaleString("en-US");
 

@@ -2,15 +2,9 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { useState } from "react";
 
-export const FilterTweets = () => {
-  const options = ["show all", "follow", "followings"];
+export const FilterTweets = ({ onSelect }) => {
+  const options = ["show all", "follow", "following"];
   const defaultOption = options[0];
-  const [filter, setFilter] = useState("show all");
-
-  const onSelect = (e) => {
-    console.log("Dropdown = ", e.value);
-    setFilter(e.value);
-  };
 
   return (
     <>
