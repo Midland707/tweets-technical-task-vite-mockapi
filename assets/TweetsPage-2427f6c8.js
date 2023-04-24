@@ -1,4 +1,4 @@
-import{L as Wn,r as j,g as Vn,j as P,c as me,a as Jn,u as Qn}from"./index-6182b754.js";import{p as xe,H as Xn}from"./Helmet-29be8bde.js";import{s as F,L as Kn}from"./Loader-c1ea42f0.js";const Gn=F(Wn)`
+import{L as Wn,r as j,g as Vn,j as P,c as me,a as Jn,u as Qn}from"./index-37acb02c.js";import{p as xe,H as Xn}from"./Helmet-c77ec627.js";import{s as F,L as Kn}from"./Loader-f9924694.js";const Gn=F(Wn)`
   display: block;
   text-align: center;
 
@@ -131,7 +131,7 @@ import{L as Wn,r as j,g as Vn,j as P,c as me,a as Jn,u as Qn}from"./index-6182b7
   &:focus {
     background-color: #5cd3a8;
   }
-`,fr="/tweets-technical-task-vite-mockapi/assets/logo-aec7c177.svg",dr="/tweets-technical-task-vite-mockapi/assets/image-fee3a66f.png",pr=({user:t,handelOnClick:e})=>{const{tweets:n,followers:r,avatar:o,id:a}=t,i=r.toString(),s=[i.slice(0,i.length-3),",",i.slice(i.length-3)].join("");return P.jsx(tr,{children:P.jsxs(nr,{children:[P.jsx(rr,{alt:"card logo",src:fr}),P.jsx(or,{alt:"card image",src:dr}),P.jsx(ir,{}),P.jsx(ar,{children:P.jsx(sr,{alt:"avatar",src:o})}),P.jsxs(lr,{children:[n," Tweets"]}),P.jsxs(ur,{children:[s," Followers"]}),P.jsx(cr,{onClick:()=>e(a,t),children:"Follow"})]})})},hr=F.ul`
+`,fr="/tweets-technical-task-vite-mockapi/assets/logo-aec7c177.svg",dr="/tweets-technical-task-vite-mockapi/assets/image-fee3a66f.png",pr=({user:t,handelOnClick:e})=>{const{tweets:n,followers:r,avatar:o,id:a}=t;let i;JSON.parse(localStorage.getItem("followingUsers")).find(l=>l.id===a)?i="Following":i="Follow";const f=r.toLocaleString("en-US");return P.jsx(tr,{children:P.jsxs(nr,{children:[P.jsx(rr,{alt:"card logo",src:fr}),P.jsx(or,{alt:"card image",src:dr}),P.jsx(ir,{}),P.jsx(ar,{children:P.jsx(sr,{alt:"avatar",src:o})}),P.jsxs(lr,{children:[n," Tweets"]}),P.jsxs(ur,{children:[f," Followers"]}),P.jsx(cr,{style:{backgroundColor:i==="Following"?"#5cd3a8":"#ebd8ff"},onClick:()=>e(a,t),children:i})]})})},hr=F.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
