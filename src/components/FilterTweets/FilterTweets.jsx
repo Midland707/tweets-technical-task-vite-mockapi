@@ -1,19 +1,21 @@
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-import { useState } from "react";
+import PropTypes from "prop-types";
 
 export const FilterTweets = ({ onSelect }) => {
   const options = ["show all", "follow", "following"];
   const defaultOption = options[0];
 
   return (
-    <>
-      <Dropdown
-        options={options}
-        onChange={onSelect}
-        value={defaultOption}
-        placeholder="Select an option"
-      />
-    </>
+    <Dropdown
+      options={options}
+      onChange={onSelect}
+      value={defaultOption}
+      placeholder="Select an option"
+    />
   );
+};
+
+FilterTweets.propTypes = {
+  onSelect: PropTypes.func.isRequired,
 };

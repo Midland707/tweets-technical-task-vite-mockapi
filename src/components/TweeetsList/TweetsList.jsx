@@ -39,14 +39,24 @@ export const TweetsList = () => {
 
   useEffect(() => {
     if (page !== 1) setIsLoading(true);
-    getUsers(page)
-      .then((res) => {
-        setUsers([...users, ...res.data]);
-        setShowBtn(true);
-        setIsLoading(false);
-        if (totalPages) setShowBtn(page < Math.ceil(totalPages / 3));
-      })
-      .catch((error) => console.error(error.message));
+    if (window.location.pathname === "/tweets-technical-task-vite-mockapi/") {
+      getAllUsers()
+        .then((res) => {
+          setUsers([...res.data]);
+        })
+        .catch((error) => {
+          console.error(error.message);
+        });
+    } else {
+      getUsers(page)
+        .then((res) => {
+          setUsers([...users, ...res.data]);
+          setShowBtn(true);
+          setIsLoading(false);
+          if (totalPages) setShowBtn(page < Math.ceil(totalPages / 3));
+        })
+        .catch((error) => console.error(error.message));
+    }
   }, [page]);
 
   const saveUsers = (id, user, followers) => {
@@ -84,11 +94,16 @@ export const TweetsList = () => {
   loadFromStorage();
   if (filter === "follow")
     filterUsers = users.filter((user) => !ArrFollowId.includes(user.id));
-  if (filter === "following")
+  if (
+    filter === "following" ||
+    window.location.pathname === "/tweets-technical-task-vite-mockapi/"
+  )
     filterUsers = users.filter((user) => ArrFollowId.includes(user.id));
   return (
     <>
-      <FilterTweets onSelect={onSelect} />
+      {!(
+        window.location.pathname === "/tweets-technical-task-vite-mockapi/"
+      ) && <FilterTweets onSelect={onSelect} />}
       <List>
         {filterUsers.map((user) => (
           <TweetItem key={user.id} user={user} handelOnClick={followOnClick} />

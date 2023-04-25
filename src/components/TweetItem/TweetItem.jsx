@@ -10,6 +10,7 @@ import {
   Followers,
   TweetBtn,
 } from "./TweetItem.styled";
+import PropTypes from "prop-types";
 import logo from "../../images/logo.svg";
 import image from "../../images/image.png";
 
@@ -46,4 +47,9 @@ export const TweetItem = ({ user, handelOnClick }) => {
       </TweetCard>
     </Item>
   );
+};
+
+TweetItem.propTypes = {
+  user: PropTypes.object.isRequired,
+  handelOnClick: PropTypes.func.isRequired,
 };

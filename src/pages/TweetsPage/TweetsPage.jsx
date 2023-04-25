@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet";
 import { GoBackButton, TweetsMain } from "./TweetsPage.styled";
 import { useLocation } from "react-router-dom";
 import { useRef } from "react";
-import { FilterTweets } from "../../components/FilterTweets/FilterTweets";
 import { TweetsList } from "../../components/TweeetsList/TweetsList";
 const TweetsPage = () => {
   const location = useLocation();

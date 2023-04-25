@@ -29,10 +29,3 @@ export const GoBackButton = styled(Link)`
     background-color: #5cd3a8;
   }
 `;
-export const TweetsMain = styled.main`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  background-color: #d9acc9;
-`;
