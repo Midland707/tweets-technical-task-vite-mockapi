@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-import PropTypes from "prop-types";
+import css from "./FilterTweets.module.css";
 
 export const FilterTweets = ({ onSelect }) => {
   const options = ["show all", "follow", "following"];
@@ -12,6 +13,9 @@ export const FilterTweets = ({ onSelect }) => {
       onChange={onSelect}
       value={defaultOption}
       placeholder="Select an option"
+      className={css.myClassName}
+      controlClassName={css.myControlClassName}
+      menuClassName={css.myMenuClassName}
     />
   );
 };

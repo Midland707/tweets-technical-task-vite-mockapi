@@ -1,6 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+export const TweetsMain = styled.main`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  background-color: #d9acc9;
+`;
+
 export const GoBackButton = styled(Link)`
   display: block;
   text-align: center;
