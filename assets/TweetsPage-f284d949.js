@@ -1,4 +1,4 @@
-import{L as s,u as a,r as c,j as o}from"./index-898f5b6b.js";import{H as i,T as x}from"./TweetsList-bf08ef8b.js";import{s as e}from"./Loader-ebd5a98e.js";const l=e.main`
+import{L as s,u as a,r as c,j as o}from"./index-202d545d.js";import{H as i,T as x}from"./TweetsList-5eaf2698.js";import{s as e}from"./Loader-c7f9f1f8.js";const l=e.main`
   display: flex;
   align-items: center;
   flex-direction: column;
