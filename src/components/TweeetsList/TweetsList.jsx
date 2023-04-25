@@ -22,7 +22,7 @@ export const TweetsList = () => {
     const userStorage = localStorage.getItem("followingUsers");
     const parsedUsers = JSON.parse(userStorage);
     if (parsedUsers) {
-      ArrFollowId = parsedUsers;
+      ArrFollowId = parsedUsers || [];
     }
   };
 

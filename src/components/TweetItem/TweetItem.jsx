@@ -17,7 +17,7 @@ export const TweetItem = ({ user, handelOnClick }) => {
   const { tweets, followers, avatar, id } = user;
 
   let buttonName;
-  const parsedUsers = JSON.parse(localStorage.getItem("followingUsers"));
+  const parsedUsers = JSON.parse(localStorage.getItem("followingUsers")) || [];
   if (parsedUsers)
     if (parsedUsers.includes(id)) buttonName = "Following";
     else buttonName = "Follow";
