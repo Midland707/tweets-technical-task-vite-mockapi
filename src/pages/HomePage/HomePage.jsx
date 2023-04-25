@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { HomeMain, LibraryTitle } from "./HomePage.styled";
+import { HomeMain, LibraryTitle, StyledNavLink } from "./HomePage.styled";
 import { TweetsList } from "../../components/TweeetsList/TweetsList";
 
 const HomePage = () => {
@@ -8,7 +8,13 @@ const HomePage = () => {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      <LibraryTitle>Your following tweets</LibraryTitle>
+      <LibraryTitle>
+        Your following tweets
+        <StyledNavLink to="/tweets">
+          {"  "}
+          {">>"} Go to Tweets {">>"}
+        </StyledNavLink>
+      </LibraryTitle>
       <TweetsList />
     </HomeMain>
   );
