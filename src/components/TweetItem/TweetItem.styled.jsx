@@ -119,6 +119,6 @@ export const TweetBtn = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #5cd3a8;
+    color: #d35cb9;
   }
 `;

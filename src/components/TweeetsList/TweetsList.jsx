@@ -17,7 +17,6 @@ export const TweetsList = () => {
   const [filter, setFilter] = useState("show all");
 
   let ArrFollowId = [];
-
   const loadFromStorage = () => {
     const userStorage = localStorage.getItem("followingUsers");
     const parsedUsers = JSON.parse(userStorage);

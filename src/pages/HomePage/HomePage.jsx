@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { HomeMain } from "./HomePage.styled";
+import { HomeMain, LibraryTitle } from "./HomePage.styled";
 import { TweetsList } from "../../components/TweeetsList/TweetsList";
 
 const HomePage = () => {
@@ -8,7 +8,7 @@ const HomePage = () => {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      <h2>My following tweets</h2>
+      <LibraryTitle>Your following tweets</LibraryTitle>
       <TweetsList />
     </HomeMain>
   );
